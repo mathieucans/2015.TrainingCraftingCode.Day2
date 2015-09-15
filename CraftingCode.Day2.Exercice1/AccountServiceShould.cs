@@ -11,7 +11,6 @@ namespace CraftingCode.Day2.Exercice1
 	public class AccountServiceShould
 	{
 		private Mock<ITransactionService> transactionService;
-		private Mock<IDateService> dateService;
 		private AccountService accountService;
 		private Mock<IPrintService> printService;
 
@@ -19,31 +18,24 @@ namespace CraftingCode.Day2.Exercice1
 		public void Initialize()
 		{
 			transactionService = new Mock<ITransactionService>();
-			dateService = new Mock<IDateService>();
 			printService = new Mock<IPrintService>();
-			accountService = new AccountService(dateService.Object, transactionService.Object, printService.Object);
+			accountService = new AccountService(transactionService.Object, printService.Object);
 		}
 
 		[TestMethod]
-		public void create_positive_transaction_on_deposit()
+		public void create_deposit_transaction_on_deposit()
 		{
-			var date = DateTime.Now;
-			dateService.Setup(s => s.Now()).Returns(date);
-
 			accountService.Deposit(500);
 
-			transactionService.Verify(s => s.Create(500, date), Times.Once);
+			transactionService.Verify(s => s.StoreDeposit(500), Times.Once);
 		}
 
 		[TestMethod]
-		public void create_negative_transaction_on_withdraw()
+		public void store_withdraw_transaction_on_withdraw()
 		{
-			var date = DateTime.Now;
-			dateService.Setup(s => s.Now()).Returns(date);
-
 			accountService.Withdraw(200);
 				
-			transactionService.Verify(s => s.Create(-200, date), Times.Once);
+			transactionService.Verify(s => s.StoreWithDraw(200), Times.Once);
 		}
 
 		[TestMethod]
@@ -66,7 +58,8 @@ namespace CraftingCode.Day2.Exercice1
 
 	public interface ITransactionService
 	{
-		void Create(int amount, DateTime date);
 		IEnumerable<Transaction> GetAllTransactions();
+		void StoreDeposit(int amount);
+		void StoreWithDraw(int amount);
 	}
 }
