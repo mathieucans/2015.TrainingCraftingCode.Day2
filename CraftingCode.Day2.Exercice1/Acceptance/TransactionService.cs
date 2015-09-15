@@ -7,6 +7,10 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 	{
 		private readonly IList<Transaction> _transactions = new List<Transaction>();
 
+		public TransactionService()
+		{
+		}
+
 		public IEnumerable<Transaction> GetAllTransactions()
 		{
 			return _transactions;
@@ -19,6 +23,7 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 
 		public void StoreWithDraw(int amount)
 		{
+			_transactions.Add(new DebitTransaction());
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CraftingCode.Day2.Exercice1.Acceptance;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace CraftingCode.Day2.Exercice1
 {
@@ -37,5 +38,22 @@ namespace CraftingCode.Day2.Exercice1
 			Assert.AreEqual(1, transactions.Count());
 			CollectionAssert.AllItemsAreNotNull(transactions.ToArray());
 		}
+
+		[TestMethod]
+		public void store_a_Debit_transaction_to_the_transactionList()
+		{
+			transactionService.StoreWithDraw(100);
+
+			var transactions = transactionService.GetAllTransactions();
+
+			Assert.AreEqual(1, transactions.Count());
+			CollectionAssert.AllItemsAreInstancesOfType(
+				transactions.ToArray(),
+				typeof(DebitTransaction));
+		}
+	}
+
+	public class DebitTransaction : Transaction
+	{
 	}
 }
