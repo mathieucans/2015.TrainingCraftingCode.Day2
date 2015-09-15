@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -9,12 +10,10 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 	{
 		private AccountService accountService;
 		private string lastPrintScreen;
-		private Mock<IPrintService> printService;
 
 		[TestInitialize]
 		public void TestInitialize()
 		{
-			printService = new Mock<IPrintService>();
 		}
 
 		[TestMethod]
@@ -38,7 +37,7 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 
 		private void an_empty_account()
 		{
-			accountService = new AccountService(new DateService(), new TransactionService());
+			accountService = new AccountService(new DateService(), new TransactionService(), new PrintService());
 		}
 
 		private void i_depose(int amount)
@@ -60,9 +59,22 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 
 	}
 
+	internal class PrintService : IPrintService
+	{
+		public void Print(IEnumerable<Transaction> alltransactions)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
 	internal class TransactionService : ITransactionService
 	{
 		public void Create(int amount, DateTime date)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<Transaction> GetAllTransactions()
 		{
 			throw new NotImplementedException();
 		}
@@ -78,5 +90,6 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 
 	public interface IPrintService
 	{
+		void Print(IEnumerable<Transaction> alltransactions);
 	}
 }
