@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace CraftingCode.Day2.Exercice1.Acceptance
 {
@@ -7,6 +8,13 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 	{
 		private AccountService accountService;
 		private string lastPrintScreen;
+		private Mock<IPrintService> printService;
+
+		[TestInitialize]
+		public void TestInitialize()
+		{
+			printService = new Mock<IPrintService>();
+		}
 
 		[TestMethod]
 		public void print_deposed_money()
@@ -40,5 +48,9 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 		}
 
 
+	}
+
+	public interface IPrintService
+	{
 	}
 }
