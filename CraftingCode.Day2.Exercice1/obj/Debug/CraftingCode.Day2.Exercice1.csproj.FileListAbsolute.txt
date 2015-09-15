@@ -1,0 +1,7 @@
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\obj\Debug\CraftingCode.Day2.Exercice1.csprojResolveAssemblyReference.cache
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\bin\Debug\CraftingCode.Day2.Exercice1.dll
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\bin\Debug\CraftingCode.Day2.Exercice1.pdb
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\bin\Debug\Moq.dll
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\bin\Debug\Moq.xml
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\obj\Debug\CraftingCode.Day2.Exercice1.dll
+E:\MCS\Formations\15 09 Crafting code\Days2\CraftingCode.Day2.Exercice1\CraftingCode.Day2.Exercice1\obj\Debug\CraftingCode.Day2.Exercice1.pdb

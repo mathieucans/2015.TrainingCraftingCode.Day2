@@ -1,0 +1,88 @@
+*******************
+ About builder
+ ******************
+
+package com.codurance.craftingcode.exercise_06_clean_tests_with_builders;
+ 
+import org.junit.Test;
+ 
+import static com.codurance.craftingcode.exercise_06_clean_tests_with_builders.ItemBuilder.anItem;
+import static com.codurance.craftingcode.exercise_06_clean_tests_with_builders.OrderBuilder.anOrder;
+import static com.codurance.craftingcode.exercise_06_clean_tests_with_builders.ProductBuilder.aProduct;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+ 
+public class OrderShould {
+ 
+    @Test public void
+    have_zero_value_when_it_has_no_items() {
+        Order order = new Order();
+ 
+        assertThat(order.value(), is(0));
+    }
+ 
+    @Test public void
+    have_total_price_as_the_sum_of_its_items_totals() {
+        Order order = anOrder()
+                            .with(
+                                    anItem().containing(1, aProduct().costing(30)).build(),
+                                    anItem().containing(2, aProduct().costing(20)).build())
+                            .build();
+ 
+        assertThat(order.value(), is(70));
+    }
+ 
+ 
+}
+ 
+package com.codurance.craftingcode.exercise_06_clean_tests_with_builders;
+ 
+public class Product {
+ 
+    private int price;
+ 
+    public Product(int price) {
+        this.price = price;
+    }
+ 
+    public int price() {
+        return price;
+    }
+}
+ 
+ 
+package com.codurance.craftingcode.exercise_06_clean_tests_with_builders;
+ 
+import java.util.ArrayList;
+import java.util.List;
+ 
+public class Order {
+    private List<item> items = new ArrayList<>();
+ 
+    public int value() {
+        return items.stream()
+                    .mapToInt(item -> item.total())
+                    .sum();
+    }
+ 
+    public void add(Item item) {
+        items.add(item);
+    }
+}
+ 
+package com.codurance.craftingcode.exercise_06_clean_tests_with_builders;
+ 
+public class Item {
+ 
+    private final Product product;
+    private final int quantity;
+ 
+    public Item(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+ 
+    public int total() {
+        return product.price() * quantity;
+    }
+}
