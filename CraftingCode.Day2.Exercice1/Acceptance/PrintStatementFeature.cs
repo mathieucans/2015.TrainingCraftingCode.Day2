@@ -67,25 +67,6 @@ namespace CraftingCode.Day2.Exercice1.Acceptance
 		}
 	}
 
-	internal class TransactionService : ITransactionService
-	{
-
-		public IEnumerable<Transaction> GetAllTransactions()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void StoreDeposit(int amount)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void StoreWithDraw(int amount)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
 	internal class DateService : IDateService
 	{
 		public DateTime Now()

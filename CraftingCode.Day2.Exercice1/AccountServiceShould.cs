@@ -55,11 +55,4 @@ namespace CraftingCode.Day2.Exercice1
 	{
 		DateTime Now();
 	}
-
-	public interface ITransactionService
-	{
-		IEnumerable<Transaction> GetAllTransactions();
-		void StoreDeposit(int amount);
-		void StoreWithDraw(int amount);
-	}
 }
