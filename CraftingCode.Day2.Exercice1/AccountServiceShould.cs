@@ -47,10 +47,11 @@ namespace CraftingCode.Day2.Exercice1
 		}
 
 		[TestMethod]
-		public void give_all_trasactions_to_the_printservice_on_PrintStatement()
+		public void give_all_transactions_to_the_printservice_on_PrintStatement()
 		{
 			var alltransactions = new List<Transaction>();
 			transactionService.Setup(s => s.GetAllTransactions()).Returns(alltransactions);
+			
 			accountService.PrintStatement();
 
 			printService.Verify(
