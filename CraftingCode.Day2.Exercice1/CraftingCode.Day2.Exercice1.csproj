@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Acceptance\DepositFeature.cs" />
     <Compile Include="AccountService.cs" />
+    <Compile Include="AccountServiceShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
