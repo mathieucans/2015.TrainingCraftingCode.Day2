@@ -53,7 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Acceptance\DepositFeature.cs" />
+    <Compile Include="Acceptance\PrintStatementFeature.cs" />
     <Compile Include="AccountService.cs" />
     <Compile Include="AccountServiceShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
